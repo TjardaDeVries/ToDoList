@@ -1,5 +1,7 @@
 package nl.ordina.todolist.core.domain;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Task {
@@ -18,6 +20,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return String.format("desciprtion=%s;priority=%s;dueDate=%s", description, priority, dueDate);
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return String.format("%s (%s) is due on %s", description, priority, dateFormat.format(dueDate));
     }
 }
