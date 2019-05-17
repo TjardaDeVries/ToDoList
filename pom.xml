@@ -26,4 +26,24 @@
     </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+
+      <!-- Make this jar executable -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <!-- Jar file entry point -->
+              <mainClass>nl.ordina.todolist.App</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
 </project>
