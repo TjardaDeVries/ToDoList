@@ -4,7 +4,8 @@ import nl.ordina.todolist.core.usecases.CreateTaskBoundary;
 import nl.ordina.todolist.core.usecases.ListTasksBoundary;
 
 import java.io.Console;
-import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class Presenter {
 
@@ -23,16 +24,35 @@ public class Presenter {
             String command = console.readLine("tdl>: ");
             switch (command) {
                 case "quit":
-                    System.exit(0);
+                    exectueQuitCommand();
                 case "create":
-                    createTaskBoundary.execute("description", "1", new Date());
+                    executeCreateCommand(console);
                     break;
                 case "listAll":
-                    listTasksBoundary.execute().forEach(System.out::println);
+                    executeListAllCommand();
                     break;
                 default:
-                    System.out.println(command);
+                    System.out.println("unknown command");
             }
+        }
+    }
+
+    private void executeListAllCommand() {
+        listTasksBoundary.execute().forEach(System.out::println);
+    }
+
+    private void exectueQuitCommand() {
+        System.exit(0);
+    }
+
+    private void executeCreateCommand(final Console console) {
+        final String description = console.readLine("description?: ");
+        final String priority = console.readLine("priority?: ");
+        final String dueDate = console.readLine("dueDate?: ");
+        try {
+            createTaskBoundary.execute(description, priority, new SimpleDateFormat("dd/MM/yyyy").parse(dueDate));
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
     }
 }
