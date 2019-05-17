@@ -1,18 +1,10 @@
 package nl.ordina.todolist;
 
-import java.io.Console;
+import nl.ordina.todolist.delivery.Presenter;
 
 public class App {
     public static void main(String[] args) {
-        while (true) {
-            Console console = System.console();
-            String command = console.readLine("tdl>: ");
-            switch (command) {
-                case "quit":
-                    System.exit(0);
-                default:
-                    System.out.println(command);
-            }
-        }
+        Presenter presenter = new Presenter();
+        presenter.start();
     }
 }
