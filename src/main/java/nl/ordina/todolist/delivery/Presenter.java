@@ -47,6 +47,16 @@ public class Presenter {
         final String description = console.readLine("description?: ");
         final String priority = console.readLine("priority?: ");
         final String dueDate = console.readLine("dueDate?: ");
-        createTaskBoundary.execute(description, priority, dueDate);
+        final Integer result = createTaskBoundary.execute(description, priority, dueDate);
+        switch (result) {
+            case 0:
+                System.out.println("Successfully created Task.");
+                break;
+            case 200:
+                System.out.println("ERROR: dueDate could not be parsed. Use the following format: \"dd/MM/yyyy\". Task creation falied.");
+                break;
+            default:
+                System.out.println("unknown return code");
+        }
     }
 }
