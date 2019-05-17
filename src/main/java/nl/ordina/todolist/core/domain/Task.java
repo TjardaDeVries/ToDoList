@@ -15,4 +15,9 @@ public class Task {
         this.priority = priority;
         this.dueDate = dueDate;
     }
+
+    @Override
+    public String toString() {
+        return String.format("desciprtion=%s;priority=%s;dueDate=%s", description, priority, dueDate);
+    }
 }
