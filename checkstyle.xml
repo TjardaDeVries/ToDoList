@@ -1,0 +1,35 @@
+<!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+
+    <module name="TreeWalker">
+
+        <!--  Import should be explicit, really needed and only from pure java packages -->
+        <module name="AvoidStarImport" />
+        <module name="UnusedImports" />
+        <module name="IllegalImport" />
+
+        <!-- No if/else/do/for/while without braces -->
+        <module name="NeedBraces"/>
+
+        <!-- Constant names should obey the traditional all uppercase naming convention -->
+        <module name="ConstantName" />
+
+        <!-- No trailing whitespace -->
+        <module name="Regexp">
+            <property name="format" value="[ \t]+$"/>
+            <property name="illegalPattern" value="true"/>
+            <property name="message" value="Trailing whitespace"/>
+        </module>
+
+        <!-- Check that parameters for methods, constructors, and catch blocks are final -->
+        <module name="FinalParameters"/>
+
+    </module>
+
+    <!-- No tabs allowed! -->
+    <module name="FileTabCharacter"/>
+
+</module>
