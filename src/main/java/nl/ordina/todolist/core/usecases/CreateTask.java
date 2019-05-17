@@ -3,7 +3,8 @@ package nl.ordina.todolist.core.usecases;
 import nl.ordina.todolist.core.domain.Task;
 import nl.ordina.todolist.core.domain.TaskGateway;
 
-import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class CreateTask implements CreateTaskBoundary {
 
@@ -13,9 +14,14 @@ public class CreateTask implements CreateTaskBoundary {
         this.taskGateway = taskGateway;
     }
 
-    public void execute(final String description, final String priority, final Date dueDate) {
+    public void execute(final String description, final String priority, final String dueDate) {
         //TODO Validate input parameters
-        Task task = new Task(description, priority, dueDate);
+        Task task = null;
+        try {
+            task = new Task(description, priority, new SimpleDateFormat("dd/MM/yyyy").parse(dueDate));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         taskGateway.save(task);
     }
 

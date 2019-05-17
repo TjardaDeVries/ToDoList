@@ -4,8 +4,6 @@ import nl.ordina.todolist.core.usecases.CreateTaskBoundary;
 import nl.ordina.todolist.core.usecases.ListTasksBoundary;
 
 import java.io.Console;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class Presenter {
 
@@ -49,10 +47,6 @@ public class Presenter {
         final String description = console.readLine("description?: ");
         final String priority = console.readLine("priority?: ");
         final String dueDate = console.readLine("dueDate?: ");
-        try {
-            createTaskBoundary.execute(description, priority, new SimpleDateFormat("dd/MM/yyyy").parse(dueDate));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        createTaskBoundary.execute(description, priority, dueDate);
     }
 }
