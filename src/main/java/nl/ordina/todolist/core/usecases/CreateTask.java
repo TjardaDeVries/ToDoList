@@ -5,6 +5,7 @@ import nl.ordina.todolist.core.domain.TaskGateway;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class CreateTask implements CreateTaskBoundary {
 
@@ -14,15 +15,19 @@ public class CreateTask implements CreateTaskBoundary {
         this.taskGateway = taskGateway;
     }
 
-    public void execute(final String description, final String priority, final String dueDate) {
+    public Integer execute(final String description, final String priority, final String dueDate) {
         //TODO Validate input parameters
-        Task task = null;
+
+        Date date = null;
         try {
-            task = new Task(description, priority, new SimpleDateFormat("dd/MM/yyyy").parse(dueDate));
+            date = new SimpleDateFormat("dd/MM/yyyy").parse(dueDate);
         } catch (ParseException e) {
-            e.printStackTrace();
+            return 200;
         }
+
+        Task task = new Task(description, priority, date);
         taskGateway.save(task);
+        return 0;
     }
 
 }
