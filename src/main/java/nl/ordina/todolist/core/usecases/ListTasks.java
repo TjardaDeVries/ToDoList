@@ -9,7 +9,7 @@ public class ListTasks implements ListTasksBoundary {
 
     final private TaskGateway taskGateway;
 
-    public ListTasks(TaskGateway taskGateway) {
+    public ListTasks(final TaskGateway taskGateway) {
         this.taskGateway = taskGateway;
     }
 

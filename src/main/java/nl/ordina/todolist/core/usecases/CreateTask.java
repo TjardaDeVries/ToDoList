@@ -9,7 +9,7 @@ public class CreateTask implements CreateTaskBoundary {
 
     private final TaskGateway taskGateway;
 
-    public CreateTask(TaskGateway taskGateway) {
+    public CreateTask(final TaskGateway taskGateway) {
         this.taskGateway = taskGateway;
     }
 

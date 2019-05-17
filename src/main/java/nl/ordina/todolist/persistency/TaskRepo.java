@@ -10,7 +10,7 @@ public class TaskRepo implements TaskGateway {
 
     private List<Task> tasks = new ArrayList<>();
 
-    public void save(Task task) {
+    public void save(final Task task) {
         tasks.add(task);
     }
 
