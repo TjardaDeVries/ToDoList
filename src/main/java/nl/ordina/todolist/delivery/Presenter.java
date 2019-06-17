@@ -17,8 +17,10 @@ public class Presenter {
     }
 
     public void start() {
+
+        Console console = System.console();
+
         while (true) {
-            Console console = System.console();
             String command = console.readLine("tdl>: ");
             switch (command) {
                 case "quit":
