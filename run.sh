@@ -1,4 +1,4 @@
-mvn clean package
-cd main/target
-clear
-java -jar main-1.0-SNAPSHOT.jar
+mvn clean install 
+cd main/
+mvn clean jetty:run
+cd ..
