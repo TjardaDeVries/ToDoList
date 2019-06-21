@@ -25,7 +25,10 @@ public class CreateTask implements CreateTaskBoundary {
             return 200;
         }
 
-        Task task = new Task(description, priority, date);
+        Task task = new Task();
+        task.setDescription(description);
+        task.setPriority(priority);
+        task.setDueDate(date);
         taskGateway.save(task);
         return 0;
     }
