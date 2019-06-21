@@ -10,6 +10,7 @@
     <modules>
         <module>core</module>
         <module>delivery</module>
+        <module>persistency</module>
     </modules>
     <packaging>pom</packaging>
 
