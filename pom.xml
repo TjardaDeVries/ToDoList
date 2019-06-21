@@ -23,15 +23,6 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-
     <build>
         <plugins>
 
@@ -51,20 +42,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-
-            <!-- Make this jar executable -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <!-- Jar file entry point -->
-                            <mainClass>nl.ordina.todolist.App</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
             </plugin>
 
         </plugins>
