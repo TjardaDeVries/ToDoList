@@ -1,4 +1,4 @@
 mvn clean package
-cd target
+cd main/target
 clear
-java -jar to-do-list-1.0-SNAPSHOT.jar
+java -jar main-1.0-SNAPSHOT.jar
