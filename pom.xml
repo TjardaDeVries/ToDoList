@@ -11,6 +11,7 @@
         <module>core</module>
         <module>delivery</module>
         <module>persistency</module>
+        <module>main</module>
     </modules>
     <packaging>pom</packaging>
 
