@@ -15,7 +15,7 @@ import java.util.List;
 public class ToDoListUI extends UI {
 
     private final TaskGateway taskGateway = new TaskRepo();
-    private final ListTasksBoundary listTasksBoundary = new ListTasks(taskGateway);
+    private final ListTasksBoundary listTasksUseCase = new ListTasks(taskGateway);
     private Grid<Task> grid = new Grid<>(Task.class);
 
     @Override
@@ -25,7 +25,7 @@ public class ToDoListUI extends UI {
         verticalLayout.setSpacing(true);
         verticalLayout.setMargin(true);
 
-        List<Task> tasks = listTasksBoundary.execute();
+        List<Task> tasks = listTasksUseCase.execute();
 
         grid.setColumns("description", "priority", "dueDate");
         grid.setItems(tasks);
