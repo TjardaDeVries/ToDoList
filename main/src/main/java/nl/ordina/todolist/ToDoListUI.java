@@ -14,9 +14,12 @@ import java.util.List;
 
 public class ToDoListUI extends UI {
 
-    private final TaskGateway taskGateway = new TaskRepo();
-    private final ListTasksBoundary listTasksUseCase = new ListTasks(taskGateway);
+    private final ListTasksBoundary listTasksUseCase;
     private Grid<Task> grid = new Grid<>(Task.class);
+
+    public ToDoListUI(final ListTasksBoundary listTasksUseCase) {
+        this.listTasksUseCase = listTasksUseCase;
+    }
 
     @Override
     protected void init(final VaadinRequest vaadinRequest) {
