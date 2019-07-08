@@ -2,15 +2,19 @@ package nl.ordina.todolist.core.usecases;
 
 import nl.ordina.todolist.core.domain.Task;
 import nl.ordina.todolist.core.domain.TaskGateway;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@Component
 public class CreateTask implements CreateTaskBoundary {
 
     private final TaskGateway taskGateway;
 
+    @Autowired
     public CreateTask(final TaskGateway taskGateway) {
         this.taskGateway = taskGateway;
     }

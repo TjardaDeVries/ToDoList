@@ -2,6 +2,7 @@ package nl.ordina.todolist.persistency;
 
 import nl.ordina.todolist.core.domain.Task;
 import nl.ordina.todolist.core.domain.TaskGateway;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,6 +13,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class TaskRepo implements TaskGateway {
 
     private List<Task> tasks = new ArrayList<>();
