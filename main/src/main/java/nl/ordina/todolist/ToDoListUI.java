@@ -4,11 +4,8 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.EnableVaadin;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.spring.server.SpringVaadinServlet;
-import com.vaadin.ui.Grid;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
-import nl.ordina.todolist.core.domain.Task;
-import nl.ordina.todolist.core.usecases.ListTasksBoundary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.ContextLoaderListener;
@@ -35,14 +32,8 @@ public class ToDoListUI extends UI {
 
     private VerticalLayout root;
 
-//    @Autowired
-//    TaskListLayout taskListLayout;
-
-    Grid<Task> grid = new Grid<>();
-
     @Autowired
-    ListTasksBoundary listTasks;
-
+    TaskListLayout taskListLayout;
 
     @Override
     protected void init(final VaadinRequest vaadinRequest) {
@@ -59,9 +50,7 @@ public class ToDoListUI extends UI {
     }
 
     private void setupTaskList() {
-//        root.addComponent(taskListLayout);
-        grid.setItems(listTasks.execute());
-        root.addComponent(grid);
+        root.addComponent(taskListLayout);
     }
 
 

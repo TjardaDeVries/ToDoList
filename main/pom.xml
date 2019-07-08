@@ -39,7 +39,6 @@
                 <version>9.2.22.v20170606</version>
                 <configuration>
                     <scanIntervalSeconds>2</scanIntervalSeconds>
-                    <skipTests>true</skipTests>
                 </configuration>
             </plugin>
 

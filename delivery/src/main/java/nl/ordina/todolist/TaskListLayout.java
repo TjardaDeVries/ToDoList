@@ -1,5 +1,7 @@
 package nl.ordina.todolist;
 
+import com.vaadin.spring.annotation.SpringComponent;
+import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.VerticalLayout;
 import nl.ordina.todolist.core.domain.Task;
@@ -9,14 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.annotation.PostConstruct;
 import java.util.List;
 
-//@SpringComponent
-//@UIScope
+@SpringComponent
+@UIScope
 public class TaskListLayout extends VerticalLayout {
 
     @Autowired
     ListTasksBoundary listTasks;
 
-    Grid<Task> grid = new Grid<>();
+    private Grid<Task> grid = new Grid<>(Task.class);
 
     @PostConstruct
     void init() {
